@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+const http = require('http');
+const app = require('../src');
+const { config } = require('../package.json');
+const srv = http.createServer(app);
+const log4js = require("log4js");
+
+try {
+  require('fs').mkdirSync('./log');
+} catch (e) {
+  if (e.code != 'EEXIST') {
+    console.error("Could not set up log directory, error was: ", e);
+    process.exit(1);
+  }
+}
+
+log4js.configure('log4js.json');
+
+const log = log4js.getLogger();
+
+srv.listen(config.server.port, config.server.host, () => {
+  const { address, port } = srv.address();
+  log.info('Express server listening on port ', address, " with pid ", process.pid);
+});
+
+srv.on('error', (err) => {
+  log.error(err);
+})

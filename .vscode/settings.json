@@ -1,0 +1,10 @@
+{
+  "cSpell.ignoreWords": [
+    "alipay",
+    "precreate",
+    "qrcode"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
+}

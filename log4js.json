@@ -1,0 +1,48 @@
+{
+  "appenders": {
+    "out": {
+      "type": "console"
+    },
+    "trade_record": {
+      "type": "file",
+      "filename": "log/trade_record.log"
+    },
+    "all": {
+      "type": "file",
+      "filename": "./log/all.log",
+      "keepFileExt": true,
+      "maxLogSize": 10485760,
+      "backups": 3
+    },
+    "errorFile": {
+      "type": "file",
+      "filename": "log/errors.log"
+    },
+    "errors": {
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": "errorFile"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": [
+        "all",
+        "errors"
+      ],
+      "level": "DEBUG"
+    },
+    "trade_record": {
+      "appenders": [
+        "trade_record"
+      ],
+      "level": "DEBUG"
+    },
+    "debug": {
+      "appenders": [
+        "out"
+      ],
+      "level": "DEBUG"
+    }
+  }
+}

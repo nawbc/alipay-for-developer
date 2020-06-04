@@ -1,0 +1,44 @@
+{
+  "name": "alipay-for-developer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "server": {
+      "port": 80,
+      "host": "0.0.0.0"
+    },
+    "subject": "向开发者付款",
+    "appId": "",
+    "notifyUrl": "",
+    "amount": 0.01,
+    "db": {
+      "user": "",
+      "password": "",
+      "port": 27017,
+      "database": ""
+    },
+    "errorNote": "联系开发者 QQ: 942341345"
+  },
+  "scripts": {
+    "start": "pm2 start bin/www",
+    "stop": "pm2 start bin/www",
+    "start:https": "",
+    "dev": "cross-env NODE_ENV=debug nodemon bin/www"
+  },
+  "author": "sewerganger",
+  "license": "ISC",
+  "dependencies": {
+    "alipay-sdk": "^3.1.1",
+    "chalk": "^4.0.0",
+    "express": "^4.17.1",
+    "iconv-lite": "^0.5.1",
+    "qrcode": "^1.4.4",
+    "request": "^2.88.2",
+    "uuid": "^8.1.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "pm2": "^4.4.0"
+  }
+}
